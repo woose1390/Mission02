@@ -67,3 +67,11 @@ form{
 .tr3{
     height: 50px;
 }
+
+th{
+    width: 150px;
+}
+
+pnl,pnl2{
+    width: 70px;
+}

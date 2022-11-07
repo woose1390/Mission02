@@ -8,10 +8,27 @@
     <title>J.Furniture</title>
     <link rel="icon" href="../resources/images/jh_icon.png">
     <link rel="stylesheet"  type="text/css" href="../css/jeonghyun.css">
+  <script>
+   function changevalue(){
+    var eaddress = document.getElementById('eaddress');
+       eaddress.value = document.getElementById('mail').value;
+    if(eaddress.value ==""){
+        eaddress.focus()
+      }
+    }
+
+    function pnbn(){
+        if(document.getElementById('pnl').value.length == 4)
+            document.getElementById('pnl2').focus();
+    }
+    
+
+  </script>
+  
 </head>
 <body>
     <div class="head"><p>J.FURNITURE</p></div>
-    <div class="menu">
+    <div class="menu">  
         <table class="table1">
             <tr>
                 <td class="td1"><a href="#">침실가구</a></td>
@@ -26,8 +43,8 @@
     </div>
    
 
-    <form action="#" method="post">
-        <table>
+    <form action="#" method="post" name="signup">
+        <table name="stable">
             <caption>회원정보를 입력해주세요</caption>
             <colgroup>
                 <col>
@@ -55,19 +72,28 @@
             </tr>
             <tr>
                 <th scope="row">성별</th>
-                <td><p>남자<input type="radio" name="gender">   여자<input type="radio" name="gender">   선택하지 않음<input type="radio" name="gender"></p></td>
+                <td><p>남자<input type="radio" name="gender" valu="man">   여자<input type="radio" name="gender" value="woman">   선택하지 않음<input type="radio" name="gender" value="none"></p></td>
             </tr>
             <tr>
                 <th scope="row" for="email">이메일</th>
-                <td><input type="email" id="email" title="이메일 아이디 입력">@ <input type="email"  title="이메일 주소 입력"></td>
+                <td><input type="email" id="email" title="이메일 아이디 입력" autocomplete="on">@ <input type="email"  title="이메일 주소 입력" id="eaddress">
+                    <select name="mail" id="mail" title="이메일주소를 선택해주세요" onchange="javascript:changevalue()">
+                        <option value="이메일을 선택해주세요">선택</option>
+                        <option value="naver.com">naver.com</option>
+                        <option value="nate.com">nate.com</option>
+                        <option value="hanmail.net">hanmail.net</option>
+                        <option value="gamil.com">gmail.com</option>
+                        <option value="">직접입력</option>
+                    </select>
+                </td>
             </tr>
-            <tr>
+            <tr name="pnb">
                 <th scope="row" for="hpn">휴대전화</th>
                 <td><select id="hpn" title="휴대폰 앞자리를 선택해주세요">
                    <option>선택</option>
-                   <option value="010" selected>010</option>
-                   <input type="text" title="휴대폰 가운데 4자리를 입력하세요"> -
-                   <input type="text" title="휴대폰 끝 4자리를 입력하세요">
+                   <option value="010" selected>010</option>   <!-- 예제ex1_31 -->
+                   <input type="text" title="휴대폰 가운데 4자리를 입력하세요" id="pnl" maxlength="4" onkeyup="javascript:pnbn()"  value=""> -
+                   <input type="text" title="휴대폰 끝 4자리를 입력하세요"id="pnl2" maxlength="4">
                 </td>
             </tr>
             <tr>
@@ -139,6 +165,31 @@
                         }
                     </script></td>
             </tr>
+            <tr>
+                <th>좋아하는 색깔</th>
+                <td><input type="color"></td>
+            </tr>
+            <th>홈페이지</th>
+            <td><input type="url"></td>
+            <tr>
+                <th>관심분야</th>
+                <td>
+                    <input type="checkbox" value="interior">인테리어
+                    <input type="checkbox" value="badroom">침실가구
+                    <input type="checkbox" value="kitchen">주방가구 <br>
+                    <input type="checkbox" value="bathroom">욕실가구
+                    <input type="checkbox" value="livingroom">거실가구
+                    <input type="checkbox" value="office">사무용가구
+                </td>
+            </tr>
+            <tr>
+                <th>가입목적</th>
+                <td><textarea rows="5" cols="50"></textarea></td>
+            </tr>
+            <tr>
+                <th></th>
+                <td ><input type="submit" value="회원가입"><input type="reset" value="다시작성"></td>
+            </tr>
         </table>
     </form>
 
@@ -164,5 +215,8 @@
             </tr>
         </table>
     </div>
+    <script>
+
+    </script>
 </body>
 </html>
